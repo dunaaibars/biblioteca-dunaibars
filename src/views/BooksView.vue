@@ -7,12 +7,14 @@ import BookCard from '../components/BookCard.vue'
 
 const db = getFirestore(app)
 
+// Variables reactives utilitzades per gestionar les dades i l'estat de la vista
 const llibres = ref([])
 const loading = ref(true)
 const error = ref(null)
 
 const filtre = ref('Tots')
 
+// Computed que actualitza automàticament els llibres mostrats segons el filtre seleccionat
 const llibresFiltrats = computed(() => {
 
   if (filtre.value === 'Tots') {
@@ -24,6 +26,7 @@ const llibresFiltrats = computed(() => {
   )
 })
 
+// Quan es carrega la vista es recuperen els llibres des de Firestore
 onMounted(async () => {
   try {
     const snapshot = await getDocs(
@@ -53,6 +56,7 @@ onMounted(async () => {
       Catàleg de llibres
     </h2>
 
+    <!-- Botons que permeten filtrar els llibres segons el seu gènere -->
     <div class="filtres">
 
       <button :class="{ 'is-active': filtre === 'Tots' }" @click="filtre = 'Tots'">
@@ -81,6 +85,7 @@ onMounted(async () => {
 
     </div>
 
+    <!-- Renderització condicional dels diferents estats de càrrega -->
     <p v-if="loading" class="catalog-state">
       Carregant llibres...
     </p>
@@ -97,12 +102,13 @@ onMounted(async () => {
       v-else
       class="books-grid"
     >
+    <!--  Cada llibre recuperat de Firestore es passa al component fill BookCard mitjançant props -->
       <BookCard
         v-for="llibre in llibresFiltrats"
         :key="llibre.id"
         :llibre="llibre"
       />
-
+      <!-- Comptador dinàmic dels llibres visibles després d'aplicar els filtres -->
       <h2 class="catalog-count">
         Catàleg de llibres ({{ llibresFiltrats.length }})
       </h2>

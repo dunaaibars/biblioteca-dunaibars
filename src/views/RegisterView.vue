@@ -1,5 +1,7 @@
 <template>
   <div class="register-page">
+
+    <!-- Vista associada a la ruta /registre. Permet als usuaris unir-se al Club de Lectura. -->
     <section class="hero">
       <div class="hero-mark" aria-hidden="true">
         <svg viewBox="0 0 48 48">
@@ -23,6 +25,8 @@
 
       <h2>Formulari d'inscripció</h2>
 
+      <!-- Formulari únicament informatiu. No guarda dades a Firestore
+           perquè la pràctica només requereix lectura de dades. -->
       <form>
 
         <input
@@ -45,6 +49,7 @@
           placeholder="Edat"
         >
 
+        <!-- Camp per indicar el gènere literari preferit de l'usuari. -->
         <select>
           <option selected disabled>
             Gènere literari preferit
@@ -79,6 +84,10 @@
 </template>
 
 <style scoped>
+
+/* Distribució principal de la pàgina:
+   columna esquerra amb la presentació del Club de Lectura
+   i columna dreta amb el formulari d'inscripció */
 .register-page {
   display: grid;
   grid-template-columns: minmax(270px, 0.78fr) minmax(0, 1.35fr);

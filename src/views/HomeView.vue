@@ -16,6 +16,10 @@ import app from '../firebase'
 
 const db = getFirestore(app)
 
+// Variable reactiva que emmagatzema el llibre marcat com a llibre del mes const llibreDelMes = ref(null)
+
+// Quan es carrega la vista es consulta Firestore per obtenir el llibre del mes onMounted(async () => {
+
 const llibreDelMes = ref(null)
 
 onMounted(async () => {
@@ -49,11 +53,13 @@ onMounted(async () => {
         Llibre del mes
       </h2>
 
+      <!-- Es reutilitza el component BookDetail per mostrar les dades del llibre recuperat des de Firestore -->
+
       <BookDetail
         v-if="llibreDelMes"
         :llibre="llibreDelMes"
       />
-
+      <!-- Renderització condicional mentre les dades encara no s'han carregat -->
       <p v-else class="loading-state">
         Carregant llibre del mes...
       </p>

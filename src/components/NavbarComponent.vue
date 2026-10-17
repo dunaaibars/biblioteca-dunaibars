@@ -1,4 +1,6 @@
 <template>
+  
+  <!-- Component de navegació principal utilitzant Vue Router per canviar entre les diferents vistes de l'aplicació -->
   <nav aria-label="Navegació principal">
     <RouterLink to="/">Inici</RouterLink>
 

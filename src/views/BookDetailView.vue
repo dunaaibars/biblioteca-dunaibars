@@ -8,12 +8,14 @@ import app from '../firebase'
 
 import BookDetail from '../components/BookDetail.vue'
 
+// useRoute permet obtenir l'id del llibre directament des de la URL
 const route = useRoute()
 
 const llibre = ref(null)
 
 const db = getFirestore(app)
 
+// Quan es carrega la vista es recupera de Firestore el llibre seleccionat
 onMounted(async () => {
 
   const llibreRef = doc(
@@ -33,6 +35,8 @@ onMounted(async () => {
 
 <template>
   <div class="book-detail-page">
+
+    <!-- Enllaç per tornar al catàleg de llibres -->
     <RouterLink
         to="/llibres"
         class="back-btn"
@@ -40,10 +44,12 @@ onMounted(async () => {
         ← Tornar al catàleg
     </RouterLink>
 
+    <!-- Estat de càrrega mentre es recuperen les dades de Firestore -->
     <p v-if="!llibre" class="loading-state">
       Carregant...
     </p>
 
+    <!-- El llibre recuperat es passa al component fill mitjançant props -->
     <BookDetail
       v-else
       :llibre="llibre"

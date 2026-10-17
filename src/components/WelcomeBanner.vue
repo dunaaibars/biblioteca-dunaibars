@@ -1,4 +1,5 @@
 <template>
+    <!-- Component utilitzat com a portada de la pàgina principal -->
   <section class="hero">
 
     <div class="text">
@@ -9,6 +10,7 @@
         recomanats per la nostra comunitat.
       </p>
 
+      <!-- Navegació mitjançant Vue Router cap al catàleg de llibres -->
       <RouterLink to="/llibres" class="btn">
         Explorar catàleg
       </RouterLink>

@@ -1,4 +1,5 @@
 <template>
+  <!-- Cada targeta és també un enllaç a la ruta dinàmica del llibre -->
   <RouterLink
     :to="`/llibres/${llibre.id}`"
     class="card-link"
@@ -41,6 +42,7 @@
 </template>
 
 <script setup>
+// El component rep un llibre des del component pare BooksView mitjançant props
 defineProps({
   llibre: Object
 })

@@ -1,4 +1,6 @@
 <template>
+
+  <!-- Footer reutilitzable que es mostra a totes les vistes de l'aplicació -->
   <footer class="site-footer">
     <div class="footer-inner">
       <section class="footer-about" aria-label="Sobre la biblioteca">
@@ -13,6 +15,7 @@
         <p>Explora autors, novel·les i llibres recomanats per la nostra comunitat.</p>
       </section>
 
+      <!-- Navegació secundària utilitzant Vue Router -->
       <nav class="footer-navigation" aria-label="Navegació del peu de pàgina">
         <h2>Explora</h2>
         <RouterLink to="/">Inici</RouterLink>

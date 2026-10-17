@@ -1,5 +1,6 @@
 <template>
 
+<!-- El detall només es mostra quan existeixen dades del llibre -->
   <div
     v-if="llibre"
     class="detail"
@@ -48,6 +49,8 @@
 
 <script setup>
 
+// Component reutilitzable que rep un llibre des del component pare
+// i mostra tota la informació detallada de l'obra
 defineProps({
   llibre: Object
 })
